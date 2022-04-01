@@ -1,0 +1,16 @@
+name: Go Check PR
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ready_for_review, opened, reopened, synchronize]
+
+jobs:
+  run-test:
+    name: "Check PR"
+    runs-on: ubuntu-latest
+    needs: [ check-files ]
+    steps:
+      - uses: actions/checkout@v2
+
+
